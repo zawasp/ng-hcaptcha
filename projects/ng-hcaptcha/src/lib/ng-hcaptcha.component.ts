@@ -104,6 +104,10 @@ export class NgHcaptchaComponent implements OnInit, OnDestroy, ControlValueAcces
   }
 
   ngOnDestroy() {
+    if (isPlatformServer(this.platformId)) {
+      return;
+    }
+
     this.captcha$.unsubscribe();
   }
 
